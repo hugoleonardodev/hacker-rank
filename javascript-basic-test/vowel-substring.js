@@ -1,0 +1,3 @@
+function findSubstrings(s, k) {
+  
+}
