@@ -22,3 +22,5 @@ function findSubstrings(s, k) {
 console.log(findSubstrings('azerdii', 5));
 
 console.log(findSubstrings('qwdftr', 2));
+
+console.log(findSubstrings('eiuaooo', 4));

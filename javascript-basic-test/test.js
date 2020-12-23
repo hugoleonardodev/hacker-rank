@@ -1,4 +1,6 @@
-const regex = /[aeiou]/ig;
+const regex = /[aeiou]./ig;
+
+const arrayWithSubStrings = [];
 
 const arr = [ 'qw', 'wd', 'df', 'ft', 'tr' ];
 
@@ -13,8 +15,13 @@ if (arr.find(word => word.match(regex))) {
   console.log("Can´t find!");
 }
 
+for (let index = 0; index <= counter; index += 1) {
+  let subString = stringA.slice(index, 4 + index);
+  arrayWithSubStrings.push(subString);
+}
+
+console.log(arrayWithSubStrings);
 
 
 
-
-console.log(stringA.match(regex).length);
+// console.log(stringA.match(regex).length);
