@@ -3,7 +3,6 @@ function mostBalancedPartition(parent, files_size) {
   let partitionB = [];
 
   if (files_size.every(element => element.toString().length >= 2) === true) {
-    // const binaryToDecimal = files_size.map(binary => parseInt(binary, 2));
     partitionA.push(files_size[0]);
     files_size.shift();
     parent.shift();
