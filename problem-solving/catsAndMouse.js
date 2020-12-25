@@ -6,7 +6,6 @@ function catAndMouse(x, y, z) {
     } else if (mouseCat1 < mouseCat2) {
       return 'Cat A';
     } else {
-    return 'Cat B';
+      return 'Cat B';
     }    
-  }
-  
+}
