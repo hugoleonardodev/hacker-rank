@@ -1,4 +1,3 @@
-
 class Polygon {
   constructor(sidesLengthArray) {
     this.polygon = sidesLengthArray
