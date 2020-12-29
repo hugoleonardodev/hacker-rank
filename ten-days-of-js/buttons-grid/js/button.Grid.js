@@ -1,44 +1,36 @@
 Window.onload = createButtons();
 
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-const rotatingNumbers = [1, 2, 3, 4, 6, 7, 8, 9]; // [9, 1, 2, 3, 4, 5, 6, 7, 8]
+let rotatingNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const rotatingArray = () => {
-  const firstElement = rotatingNumbers.pop();
-  rotatingNumbers.unshift(firstElement);
+  const a = rotatingNumbers.slice(0, 3);
+  const b = rotatingNumbers.slice(3, 9);
+  const c = a.pop();
+  const d = b.shift();
+  a.unshift(d);
+  b.splice(1, 0, c);
+  const e = b.splice(2, 1)[0];
+  b.push(e);
+  const f = b.splice(2, 1)[0];
+  a.push(f);
+  console.log(a);
+  console.log(b);
+  rotatingNumbers = a.concat(b);
   return rotatingNumbers;
 }
-
-let counter = 0;
 
 function rotateClockwise() {
   const numbersIds = [];
   const numbersChange = rotatingArray();
-  console.log( numbersChange);
+  console.log(numbersChange);
   numbers.forEach(number => numbersIds.push(`btn${number}`));
 
+  for (let index = 0; index < numbersChange.length; index += 1) {
+    const btnId = numbersIds[index];
+    document.getElementById(btnId).innerText = numbersChange[index];
+  }
 
-  while (counter < 3) {
-    document.getElementById(numbersIds[counter]).innerText = numbersChange[counter];
-    counter += 1;
-  }
-  if (counter === 3) {
-    document.getElementById(numbersIds[counter - 3]).innerText = numbersChange[counter + 1];
-    document.getElementById(numbersIds[counter + 0]).innerText = numbersChange[counter + 3];
-    document.getElementById(numbersIds[counter + 2]).innerText = numbersChange[counter + 0];
-    document.getElementById(numbersIds[counter + 3]).innerText = numbersChange[counter + 4];
-    document.getElementById(numbersIds[counter + 4]).innerText = numbersChange[counter - 3];
-    document.getElementById(numbersIds[counter + 5]).innerText = numbersChange[counter + 2];
-    counter = 0;
-  // } else if (counter === 4) {
-    // document.getElementById(numbersIds[counter]).innerText = numbers[counter];
-    // document.getElementById(numbersIds[counter]).innerText = numbers[counter - 4];
-    // document.getElementById(numbersIds[counter]).innerText = numbers[counter - 4];
-    // counter += 1;
-  // } else if (counter === 5) {
-    // document.getElementById(numbersIds[counter]).innerText = numbers[counter - 4];
-    // counter += 1;
-  }
 }
 
 function createButtons() {
