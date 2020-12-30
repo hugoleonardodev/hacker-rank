@@ -11,13 +11,18 @@ function happyLadyBus(b) {
       let bug = arr[0];
       let subArrLength = arr.filter(bugs => bugs === bug).length;
       subArr.push(arr.filter(bugs => bugs === bug));
-      arr.splice(0, arr.filter(a=>a===arr[0]).length);
+      arr.splice(0, arr.filter(a => a === arr[0]).length);
       counter -= subArrLength;
     }
-    console.log(subArr);
+    if (subArr.find(e => e.length < 2)) {
+      return 'NO';
+    } 
+    return 'YES';
+  } else {
+    const arr = b.split('');
   }
 }
 
-// console.log(happyLadyBus('AABBC'));
+console.log(happyLadyBus('AABBC'));
 
 console.log(happyLadyBus('AAABBBC_CCD'));
