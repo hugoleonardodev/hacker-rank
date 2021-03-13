@@ -187,21 +187,16 @@ const getTotalScoreFromData2 = (allPagesArray) => {
 // just goals for the given competition
 
 const promise1 = getCompetitionData('Uefa Champions League', 2011);
-let sum = 0;
 
 promise1
   .then((result) => JSON.parse(result))
   .then((result) => getTeamHomeDataPage0(result).then((result) => result))
   .then((result) => getAllTeamHomePagesData(result).then((result) => result))
   .then((result) => getTotalScoreFromData(result).then((result) => result))
-  // .then((result) => (sum += result))
-  // .then((result) => console.log('testando result', (sum += result)))
   .then((result) => getTeamVisitingDataPage0(result).then((result) => result))
-  // .then((result) => console.log(result))
   .then((result) =>
     getAllTeamVisitingPagesData(result).then((result) => result),
   )
-  // .then((result) => console.log(result))
   .then((result) => getTotalScoreFromData2(result).then((result) => result))
   .then((result) =>
     console.log('   >>>>>>>>>>   DEU BOM!  <<<<<<<<<<   ', result),
@@ -209,5 +204,3 @@ promise1
   .catch((error) =>
     console.log('   >>>>>>>>>>   DEU RUIM!  <<<<<<<<<<   ', error),
   );
-
-console.log('sum', sum);
